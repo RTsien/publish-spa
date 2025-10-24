@@ -29,7 +29,7 @@ runs:
     - name: Checkout logseq
       uses: actions/checkout@v4
       with:
-        repository: logseq/logseq
+        repository: rtsien/logseq-mod
         path: .logseq-logseq
         ref: ${{ inputs.version }}
 
