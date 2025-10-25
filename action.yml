@@ -12,7 +12,7 @@ inputs:
   version:
     description: "Frontend version of Logseq - git tag or SHA"
     required: true
-    default: 'wiki-0.10.14'
+    default: 'wiki-0.10.6'
   theme-mode:
     description: "Theme mode of frontend. Can be 'dark' or 'light'"
     required: false
@@ -29,7 +29,7 @@ runs:
     - name: Checkout logseq
       uses: actions/checkout@v4
       with:
-        repository: rtsien/logseq-mod
+        repository: rtsien/logseq-publish
         path: .logseq-logseq
         ref: ${{ inputs.version }}
 
@@ -37,7 +37,7 @@ runs:
     - name: Checkout action
       uses: actions/checkout@v4
       with:
-        repository: logseq/publish-spa
+        repository: rtsien/publish-spa
         path: .logseq-publish-spa
 
     - name: Set up Clojure
@@ -49,7 +49,7 @@ runs:
     - name: Set up Node
       uses: actions/setup-node@v5
       with:
-        node-version: '23'
+        node-version: '22'
         cache: 'yarn'
         cache-dependency-path: .logseq-publish-spa/yarn.lock
 
